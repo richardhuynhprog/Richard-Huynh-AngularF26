@@ -1,2 +1,19 @@
-<h1> {{id}}</h1>
-<h1> {{name}}</h1>
+<div class="container">
+  <h2>Dog List</h2>
+
+  @for (dog of dogList; track dog.id) {
+    <div class="dog-card">
+      <h3>{{ dog.name }}</h3>
+      <p>{{ dog.id }}</p>
+      <p>{{ dog.colour }}</p>
+      <p>Hypoallergenic: {{ dog.hypoallergenic ? 'Yes' : 'No' }}</p>
+      <p>{{ dog.weight }}</p>
+
+      @if (dog.hypoallergenic) {
+        <p class="hypoallergenic">Hypoallergenic</p>
+      }
+    </div>
+  } @empty {
+    <p class="empty-box">No dogs to display right now</p>
+  }
+</div>
