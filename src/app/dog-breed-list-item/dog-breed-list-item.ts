@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 interface DogBreed {
   name: string;
@@ -6,6 +6,11 @@ interface DogBreed {
   id: number;
   weight: number;
   hypoallergenic?: boolean;
+}
+
+export interface DogEvent {
+  id: number;
+  action: 'opened' | 'favourited';
 }
 
 @Component({
@@ -17,4 +22,12 @@ interface DogBreed {
 })
 export class DogBreedListItem {
   dog = input.required<DogBreed>();
+  dogClicked = output<DogEvent>();
+
+  onCardClick() {
+    this.dogClicked.emit({
+      id: this.dog().id,
+      action: 'opened',
+    });
+  }
 }

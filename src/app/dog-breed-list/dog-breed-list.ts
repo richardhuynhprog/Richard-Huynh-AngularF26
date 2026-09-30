@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DogBreedListItem, DogEvent} from '../dog-breed-list-item/dog-breed-list-item';
 
 interface DogBreed {
   name: string;
@@ -61,4 +62,14 @@ export class DogBreedList {
       hypoallergenic: true,
     },
   ];
+
+  protected openedDogIds: number[] = [];
+
+  onDogEvent(event: DogEvent) {
+    console.log(`Dog ${event.id} was ${event.action}`);
+
+    if (event.action === 'opened' && !this.openedDogIds.includes(event.id)) {
+      this.openedDogIds.push(event.id);
+    }
+  }
 }
