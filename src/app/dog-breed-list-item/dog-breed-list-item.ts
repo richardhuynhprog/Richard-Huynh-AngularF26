@@ -1,9 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+
+interface DogBreed {
+  name: string;
+  colour: string;
+  id: number;
+  weight: number;
+  hypoallergenic?: boolean;
+}
 
 @Component({
-  imports: [],
   selector: 'app-dog-breed-list-item',
-  styleUrl: './dog-breed-list-item.css',
+  standalone: true,
+  imports: [],
   templateUrl: './dog-breed-list-item.html',
+  styleUrl: './dog-breed-list-item.scss',
 })
-export class DogBreedListItem {}
+export class DogBreedListItem {
+  dog = input.required<DogBreed>();
+}

@@ -1,1 +1,10 @@
-<p>dog-breed-list-item works!</p>
+<div class="dog-card">
+  <h3>{{ dog().name }}</h3>
+  <p>{{ dog().id }}</p>
+  <p>{{ dog().colour }}</p>
+  <p>{{ dog().weight }}</p>
+
+  @if (dog().hypoallergenic) {
+    <p class="hypoallergenic">Hypoallergenic</p>
+  }
+</div>
