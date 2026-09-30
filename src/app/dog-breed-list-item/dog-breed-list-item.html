@@ -6,5 +6,25 @@
 
   @if (dog().hypoallergenic) {
     <p class="hypoallergenic">Hypoallergenic</p>
+  } @else {
+    <p class="not-hypoallergenic">Not Hypoallergenic</p>
+  }
+
+  @switch (dog().colour) {
+    @case ('brown') {
+      <span class="badge badge-brown">Brown Coat</span>
+    }
+    @case ('white and tan') {
+      <span class="badge badge-tan">Tan Mix</span>
+    }
+    @case ('red') {
+      <span class="badge badge-red">Red Coat</span>
+    }
+    @case ('black') {
+      <span class="badge badge-black">Black Coat</span>
+    }
+    @default {
+      <span class="badge badge-other">Unique Coat</span>
+    }
   }
 </div>

@@ -1,0 +1,37 @@
+.dog-card {
+  border: 2px solid lightblue;
+border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #fff;
+
+  h3 {
+    margin-top: 0;
+    color: darkblue;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.4rem 0;
+}
+
+.badge-brown   { background: saddlebrown; color: brown; }
+.badge-tan     { background: beige; color: sandybrown; }
+.badge-red     { background: rosybrown; color: darkred; }
+.badge-other   { background: grey; color: white; }
+.badge-other   { background: white; color: grey; }
+
+.hypoallergenic {
+  color: teal;
+  font-weight: 500;
+}
+
+.unknown {
+  color: azure;
+  font-style: italic;
+}
