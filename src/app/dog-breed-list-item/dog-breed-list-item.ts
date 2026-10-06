@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+import { DogEvent } from '../dog-event';
 
 interface DogBreed {
   name: string;
@@ -8,10 +9,6 @@ interface DogBreed {
   hypoallergenic?: boolean;
 }
 
-export interface DogEvent {
-  id: number;
-  action: 'opened' | 'favourited';
-}
 
 @Component({
   selector: 'app-dog-breed-list-item',

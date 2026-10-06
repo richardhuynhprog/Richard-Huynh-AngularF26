@@ -1,7 +1,7 @@
 <div class="container">
   <h2>{{ title }}</h2>
 
-  @for (dog of dogList; track dog.id) {
+  @for (dog of dogList(); track dog.id) {
     <app-dog-breed-list-item [dog]="dog" (dogClicked)="onDogEvent($event)" />
   } @empty {
     <p class="empty-box">No dogs to display right now</p>
