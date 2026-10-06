@@ -12,7 +12,7 @@ interface DogBreed {
 @Component({
   selector: 'app-dog-breed-list',
   standalone: true,
-  imports: [],
+  imports: [DogBreedListItem],
   templateUrl: './dog-breed-list.html',
   styleUrl: './dog-breed-list.scss',
 })
