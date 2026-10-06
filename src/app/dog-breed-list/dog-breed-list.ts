@@ -24,5 +24,4 @@ export class DogBreedList {
     if (event.action === 'opened' && !this.openedDogIds.includes(event.id)) {
       this.openedDogIds.push(event.id);
     }
-  }
-}
+  }}

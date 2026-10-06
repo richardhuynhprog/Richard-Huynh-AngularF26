@@ -4,6 +4,5 @@
   @for (dog of dogList(); track dog.id) {
     <app-dog-breed-list-item [dog]="dog" (dogClicked)="onDogEvent($event)" />
   } @empty {
-    <p class="empty-box">No dogs to display right now</p>
-  }
+    <p class="empty-box">No dogs to display right now</p>}
 </div>
