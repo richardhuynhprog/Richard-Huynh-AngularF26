@@ -50,6 +50,15 @@ export class DogBreedService {
   //read-only signal
   dogList = this.dogs.asReadonly();
 
+  //computed()
+  hypoallergenicDogs = computed(() => this.dogs().filter((dog) => dog.hypoallergenic === true));
+  //effect()
+  constructor() {
+    effect(() => {
+      console.log('Dog count is now', this.dogList().length);
+    });
+  }
+  //add() and update()
   addDog(d: DogBreed) {
     this.dogs.update((list) => [...list, d]);
   }
