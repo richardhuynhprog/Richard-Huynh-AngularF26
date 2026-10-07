@@ -15,7 +15,8 @@ export class DogBreedList {
 
   protected title: string = 'Kind of Dogs';
   protected dogList = this.dogBreedService.dogList;
-
+  protected hypoallergenicDogs = this.dogBreedService.hypoallergenicDogs;
+  protected hypoallergenicSummary = this.dogBreedService.hypoallergenicSummary;
   protected openedDogIds: number[] = [];
 
   onDogEvent(event: DogEvent) {
@@ -24,4 +25,8 @@ export class DogBreedList {
     if (event.action === 'opened' && !this.openedDogIds.includes(event.id)) {
       this.openedDogIds.push(event.id);
     }
-  }}
+    if (event.action === 'removed') {
+      this.dogBreedService.removeDog(event.id);
+    }
+  }
+}
