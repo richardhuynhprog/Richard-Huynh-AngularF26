@@ -1,14 +1,6 @@
 import { Component, input, output } from '@angular/core';
+import { DogBreed } from '../dog-breed';
 import { DogEvent } from '../dog-event';
-
-interface DogBreed {
-  name: string;
-  colour: string;
-  id: number;
-  weight: number;
-  hypoallergenic?: boolean;
-}
-
 
 @Component({
   selector: 'app-dog-breed-list-item',
@@ -22,9 +14,11 @@ export class DogBreedListItem {
   dogClicked = output<DogEvent>();
 
   onCardClick() {
-    this.dogClicked.emit({
-      id: this.dog().id,
-      action: 'opened',
-    });
+    this.dogClicked.emit({ id: this.dog().id, action: 'opened' });
+  }
+
+  onDeleteClick(event: MouseEvent) {
+    event.stopPropagation(); // prevent the card's own click (onCardClick) from also firing
+    this.dogClicked.emit({ id: this.dog().id, action: 'removed' });
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import { DogBreed } from '../dog-breed';
 
 @Injectable({ providedIn: 'root' })
@@ -50,8 +50,11 @@ export class DogBreedService {
   //read-only signal
   dogList = this.dogs.asReadonly();
 
-  //computed()
+  //computed() 1
   hypoallergenicDogs = computed(() => this.dogs().filter((dog) => dog.hypoallergenic === true));
+  //computed() 2
+  hypoallergenicSummary = computed(() => `${this.hypoallergenicDogs().length} hypoallergenic breed(s) match`,
+  );
   //effect()
   constructor() {
     effect(() => {
@@ -61,5 +64,8 @@ export class DogBreedService {
   //add() and update()
   addDog(d: DogBreed) {
     this.dogs.update((list) => [...list, d]);
+  }
+  removeDog(id: number) {
+    this.dogs.update(list =>list.filter(dog=> dog.id !== id));
   }
 }
