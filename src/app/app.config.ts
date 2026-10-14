@@ -2,6 +2,9 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { APP_CONFIG } from './shared/app-config';
+import { DogBreedService } from './services/dog-breed';
+import { MockDogBreedService } from './services/mock-dog-breed';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,5 +17,7 @@ export const appConfig: ApplicationConfig = {
         defaultCategory: 'all',
       },
     },
+    //to switch back to real service, delete or comment out provider
+    { provide: DogBreedService, useClass: MockDogBreedService},
   ],
 };
