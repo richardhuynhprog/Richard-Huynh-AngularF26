@@ -1,8 +1,12 @@
-import { computed, effect, Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal, inject } from '@angular/core';
 import { DogBreed } from '../dog-breed';
+import { APP_CONFIG} from '../shared/app-config';
 
 @Injectable({ providedIn: 'root' })
 export class DogBreedService {
+  private config = inject(APP_CONFIG);
+  //placeholder
+  dataSourceUrl = this.config.apiBaseUrl;
   private dogs = signal<DogBreed[]>([
     {
       name: 'Border Collie',

@@ -18,7 +18,7 @@ export class DogBreedList {
   protected hypoallergenicDogs = this.dogBreedService.hypoallergenicDogs;
   protected hypoallergenicSummary = this.dogBreedService.hypoallergenicSummary;
   protected openedDogIds: number[] = [];
-
+  protected dataSourceUrl = this.dogBreedService.dataSourceUrl;
   onDogEvent(event: DogEvent) {
     console.log(`Dog ${event.id} was ${event.action}`);
 
